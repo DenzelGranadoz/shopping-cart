@@ -1,13 +1,18 @@
 import React from 'react';
-import './App.css';
+import './styles/App.css';
+import Header from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
-  fetch('https://fakestoreapi.com/products')
-    .then((res) => res.json())
-    .then((json) => console.log(json));
   return (
     <div>
-      <p>Clean React App</p>
+      <BrowserRouter>
+        <Header />
+        <Main />
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }
