@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addToCart } from '../../redux/Shopping/shopping-actions';
 
-const Product = ({ product }) => {
-  const { title, image, price, rating } = product;
+const Product = ({ product, addToCart }) => {
+  const { title, image, price, rating, id } = product;
 
   return (
     <div className="product">
@@ -9,9 +11,17 @@ const Product = ({ product }) => {
       <h5 className="product-title">{title}</h5>
       <h2 className="product-price">$ {price}</h2>
       <p className="rating">Rating: {rating.rate}/5</p>
-      <button className="add-to-cart">Add to Cart</button>
+      <button className="add-to-cart" onClick={() => addToCart(id)}>
+        Add to Cart
+      </button>
     </div>
   );
 };
 
-export default Product;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => dispatch(addToCart(id)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Product);
