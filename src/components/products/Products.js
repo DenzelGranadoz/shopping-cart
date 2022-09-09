@@ -1,14 +1,21 @@
 import React from 'react';
 import Product from './ProductItem';
+import { connect } from 'react-redux';
 
-const Products = ({ products, handleAdd }) => {
+const Products = ({ products }) => {
   return (
     <div className="product-container">
       {products.map((product) => (
-        <Product key={product.id} product={product} handleAdd={handleAdd} />
+        <Product key={product.id} product={product} />
       ))}
     </div>
   );
 };
 
-export default Products;
+const mapStateToProps = (state) => {
+  return {
+    products: state.shop.products,
+  };
+};
+
+export default connect(mapStateToProps)(Products);

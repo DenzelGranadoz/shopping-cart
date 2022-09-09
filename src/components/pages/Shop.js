@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Products from '../products/Products';
+import { setProducts } from '../../redux/Shopping/shopping-actions';
 
 const Shop = () => {
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
   const [loading, setLoading] = useState(true);
-  const [products, setProducts] = useState([]);
+
+  const dispatch = useDispatch();
 
   const fetchProducts = async () => {
     try {
@@ -17,7 +16,7 @@ const Shop = () => {
         throw new Error(errorMessage);
       }
       const items = await response.json();
-      setProducts(items);
+      dispatch(setProducts(items));
     } catch (e) {
       alert(e);
       return null;
@@ -25,16 +24,14 @@ const Shop = () => {
     setLoading(false);
   };
 
-  const addToCart = () => {
-    fetch('https://fakestoreapi.com/carts')
-      .then((res) => res.json())
-      .then((json) => console.log(json));
-  };
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
   return (
     <div>
       {loading && <h1>Fetching Data...</h1>}
-      {!loading && <Products products={products} handleAdd={addToCart} />}
+      {!loading && <Products />}
     </div>
   );
 };
