@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../src/assets/logo.png';
+import { connect } from 'react-redux';
 
-const Header = () => {
+const Header = ({ cart }) => {
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    let count = 0;
+    cart.forEach((item) => {
+      count += item.qty;
+    });
+
+    setCartCount(count);
+  }, [cart, cartCount]);
+
   return (
     <nav className="navbar">
       <Link to="/">
@@ -17,10 +29,17 @@ const Header = () => {
         </Link>
         <Link to="/cart">
           <li>Cart</li>
+          <span>{cartCount}</span>
         </Link>
       </ul>
     </nav>
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    cart: state.shop.cart,
+  };
+};
+
+export default connect(mapStateToProps)(Header);
