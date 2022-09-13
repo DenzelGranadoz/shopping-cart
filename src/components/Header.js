@@ -28,8 +28,9 @@ const Header = ({ cart }) => {
           <li>Shop</li>
         </Link>
         <Link to="/cart">
-          <li>Cart</li>
-          <span>{cartCount}</span>
+          <li>
+            Cart <span>{cartCount}</span>
+          </li>
         </Link>
       </ul>
     </nav>

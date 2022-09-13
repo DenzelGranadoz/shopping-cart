@@ -51,6 +51,14 @@ body {
   cursor: pointer;
 }
 
+.navbar ul li span {
+  color: black;
+  text-decoration: underline;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
 /* main-content */
 
 .content-page {
@@ -114,12 +122,14 @@ body {
   font-weight: italic;
   text-align: center;
   min-height: 4.5rem;
-  padding: 0 0.35rem
+  padding: 0 0.35rem;
+  width: 100%;
+  border-bottom: 2px solid black;
 }
 
 .product-price {
   margin: 0;
-  padding: 0;
+  padding-top: 0;
   width: 100%;
   padding: 0 2rem;
   text-align: start;
@@ -142,12 +152,120 @@ body {
   cursor: pointer;
 }
 
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .price-cart-container {
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
 
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5rem 0;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-radius: 10px;
+  transition: 0.4s ease-in-out box-shadow;
+  align-items: center;
+
+}
+
+.cart-item:hover {
+  box-shadow: 2px 5px var(--border-color);
+  /* cursor: pointer; */
+}
+
+.cart-item img {
+  width: 175px;
+  height: 225px;
+}
+
+.cart-item-info {
+  padding: 1.5rem 2rem;
+  width: 100%;
+}
+
+.cart-item-events {
+  max-width: 6%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-item-events input {
+  width: 100%;
+}
+
+.cart-item-events button {
+  width: 100%;
+  margin: 0.5rem;
+  text-align: center;
+  background-color: var(--bg-color);
+  transition: 0.5s ease-in background-color;
+  transition: 0.15s ease-in transform;
+}
+
+.cart-item-events button:hover {
+  cursor: pointer;
+  background-color: red;
+  transform: scale(1.2);
+  color: white;
+}
+
+.cart-summary {
+  width: 40%;
+  text-align: center;
+}
+
+.cart-summary h4 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.summary-price {
+  padding: 2rem;
+}
+
+.summary-price span {
+  padding: 2rem 1rem;
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+.cart-summary button {
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  border: none;
+  background-color: var(--secondary-color);
+  font-size: 1.2rem;
+  transition: 0.5s ease-in-out transform;
+}
+
+.cart-summary button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.cart-empty h1{
+  font-size: 2.5rem;
+}
+
+.cart-empty button {
+  padding: 2rem;
+  font-size: 1.5rem;
+}
+
+.cart-empty button:hover {
+  cursor: pointer;
+}
 
 
 /* footer */
