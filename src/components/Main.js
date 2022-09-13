@@ -8,7 +8,7 @@ const Main = () => {
   return (
     <section className="content-page">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route index element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
