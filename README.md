@@ -34,6 +34,7 @@ To get this project up and running locally, follow the steps below:
 
 ## Features and Usage
 * Responsive Design(Tablet and Phone Friendly)
+* Navbar displays the number of Items inside the cart beside the Cart button
 There are 3 pages
 -* Homepage 
 * Landing Page
